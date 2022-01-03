@@ -86,6 +86,17 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
             });
     }
 
+    $scope.createOrder = function () {
+        $http.post('http://localhost:8189/app/api/v1/order', $scope.Cart, $localStorage.springWebUser)
+            .then(function successCallback(response) {
+                $http.get('http://localhost:8189/app/api/v1/carts/clear')
+                    .then(function (response) {
+                        $scope.loadCart();
+                    });
+                alert('Спасибо за заказ');
+            });
+    };
+
     $scope.loadProducts();
     $scope.loadCart();
 });

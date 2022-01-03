@@ -49,7 +49,7 @@ create table orders (
     total_price     int not null,
     address         varchar(255),
     phone           varchar(255)
-)
+);
 
 create table order_items (
     id                      bigserial primary key,
@@ -59,4 +59,4 @@ create table order_items (
     quantity                int not null,
     price_per_product       int not null,
     price                   int not null
-)
+);
